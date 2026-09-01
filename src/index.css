@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', ui-serif, Georgia, serif;
+    color: #1C3F60;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: #D4AF37;
+    color: #14212E;
+  }
+
+  :focus-visible {
+    outline: 2px solid #B3921F;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, #D4AF37 0, #D4AF37 48px, #E4DBC7 48px);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-7 py-3.5
+      font-sans text-[15px] font-semibold text-ink-deep transition-colors
+      hover:bg-gold-dark focus-visible:outline focus-visible:outline-2
+      focus-visible:outline-offset-2 focus-visible:outline-ink;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-ink/25 px-7 py-3.5
+      font-sans text-[15px] font-semibold text-ink transition-colors
+      hover:border-ink hover:bg-ink/5;
+  }
+
+  .section-label {
+    @apply font-serif text-sm italic text-slate-muted;
+  }
+
+  .input {
+    @apply w-full border border-line bg-white px-3.5 py-[0.7rem] text-[0.9rem] text-ink-deep;
+  }
+
+  .input:focus {
+    @apply outline outline-2 outline-offset-1;
+    outline-color: #B3921F;
+  }
+}
