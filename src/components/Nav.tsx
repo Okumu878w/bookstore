@@ -4,7 +4,8 @@ const links = [
   { href: '#book', label: 'The Book' },
   { href: '#themes', label: 'Themes' },
   { href: '#author', label: 'The Author' },
-  { href: '#reviews', label: 'Reviews' },
+  { href: '#services', label: 'Services' },
+  { href: '#articles', label: 'Articles' },
   { href: '#copy', label: 'Order' },
   { href: '#contact', label: 'Contact' },
 ]

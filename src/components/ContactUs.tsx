@@ -9,6 +9,11 @@ const contactDetails = [
     value: '0795 055 109',
     href: 'tel:+254795055109',
   },
+  {
+    label: 'WhatsApp Us',
+    value: '0795 055 109',
+    href: 'https://wa.me/254795055109',
+  },
 ]
 
 export default function ContactUs() {
@@ -36,6 +41,8 @@ export default function ContactUs() {
                   <dd>
                     <a
                       href={c.href}
+                      target={c.href.startsWith('http') ? '_blank' : undefined}
+                      rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       className="font-serif text-lg text-ink transition-colors hover:text-gold-dark"
                     >
                       {c.value}

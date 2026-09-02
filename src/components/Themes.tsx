@@ -2,17 +2,22 @@ const themes = [
   {
     number: '01',
     title: 'Resilience',
-    text: "Not the ability to avoid being knocked down, but the practice of getting back up in a way that doesn't cost you your judgment. Brenda writes about the specific pressures of operations leadership — production targets, crises, being the one people look to when something breaks — and how she learned to absorb pressure without passing it on unchanged.",
+    text: "Leadership will test you in ways no job description can fully prepare you for. Through burnout, self-doubt, crises, difficult seasons, and moments when quitting felt easier, Brenda explores resilience not as simply enduring pressure, but as learning how to recover, reflect, and rise without losing yourself in the process. The book asks what it means to keep going while also learning when to pause, seek support, and rebuild.",
   },
   {
     number: '02',
     title: 'Authenticity',
-    text: 'Most leadership advice was written for someone else. This section is about the ongoing negotiation between fitting into rooms not built for you and refusing to perform a version of leadership that isn\u2019t yours — told through the specific moments that forced the choice.',
+    text: 'You do not have to become someone else to lead effectively. Brenda explores the tension between staying true to your values and navigating workplaces, expectations, and relationships that may challenge them. From finding her own leadership voice to learning how to remain grounded under pressure, the book is a reflection on leading with integrity without performing a version of leadership that isn\'t yours',
   },
   {
     number: '03',
+    title: 'Influence',
+    text: "Leadership is more than competence, position, or having the right answer. It is also about how you communicate, build trust, navigate complexity, and move people toward what matters. Brenda reflects on the evolution from doing to influencing—learning to combine emotional intelligence, strategic thinking, diplomacy, and calm authority without compromising moral clarity.",
+  },
+  {
+    number: '04',
     title: 'Becoming',
-    text: "Leadership treated as a direction rather than a destination. Chapters on the Lean Six Sigma discipline of continuous improvement applied to the self, and on why the growth never fully stops — even once the title, the promotion, or the recognition arrives.",
+    text: "The book's deepest thread is the idea that leadership is not a destination. It is a continual process of learning, unlearning, growing, and becoming. Brenda reflects on the lessons leadership has forced her to unlearn—perfectionism, over-functioning, and the need to carry everything herself—while embracing a more human, grounded, and sustainable way of leading. Through it all, faith remains a quiet anchor, reminding her that identity is bigger than a title, promotion, performance, or the opinions of others.",
   },
 ]
 
@@ -22,7 +27,7 @@ export default function Themes() {
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-28">
         <p className="section-label mb-5">Throughlines</p>
         <h2 className="max-w-md font-serif text-3xl leading-tight text-ink sm:text-4xl">
-          Three ideas the book keeps returning to
+          Four ideas the book keeps returning to
         </h2>
 
         <div className="mt-14 divide-y divide-line">

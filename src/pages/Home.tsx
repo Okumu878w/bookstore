@@ -5,7 +5,8 @@ import Themes from '../components/Themes'
 import AboutAuthor from '../components/AboutAuthor'
 import GetYourCopy from '../components/GetYourCopy'
 import PaymentSupport from '../components/PaymentSupport'
-import Reviews from '../components/Reviews'
+import Services from '../components/Services'
+import Articles from '../components/Articles'
 import ContactUs from '../components/ContactUs'
 import Footer from '../components/Footer'
 
@@ -20,7 +21,8 @@ export default function Home() {
         <AboutAuthor />
         <GetYourCopy />
         <PaymentSupport />
-        <Reviews />
+        <Services />
+        <Articles />
         <ContactUs />
       </main>
       <Footer />

@@ -13,11 +13,11 @@ export default function Hero() {
           </p>
           <p className="mt-8 max-w-md text-[15px] leading-relaxed text-ink/70">
             Brenda Chebet Koech writes for anyone climbing while trying to stay
-            whole — on resilience, authenticity, and the quiet work of becoming.
+            whole — on resilience, influence, authenticity, and the quiet work of becoming.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="#copy" className="btn-gold">
-              Get Your Copy — KSh 1,000
+              Get Your Copy — KSh 800
             </a>
             <a href="#book" className="btn-outline">
               Read the blurb

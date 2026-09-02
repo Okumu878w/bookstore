@@ -1,5 +1,5 @@
 const credentials = [
-  'Plant Manager, Unga Limited',
+  'Business and manufacturing leader',
   'Lean Six Sigma Black Belt',
   'Global MBA Candidate',
   'Founder, Elevated Leadership',
@@ -15,26 +15,33 @@ export default function AboutAuthor() {
             <h2 className="font-serif text-3xl leading-tight text-ink sm:text-4xl">
               Brenda Chebet Koech
             </h2>
-            <div className="mt-8 h-40 w-32 border border-line bg-ink/5 sm:h-48 sm:w-36" aria-hidden="true" />
+            <img
+              src="/author-photo.jpeg"
+              alt="Brenda Chebet Koech"
+              className="mt-8 h-40 w-32 border border-line object-cover sm:h-48 sm:w-36"
+            />
           </div>
 
           <div className="max-w-prose">
             <p className="text-[15px] leading-[1.8] text-ink/80">
-              Brenda leads plant operations at Unga Limited, one of East
-              Africa's largest food manufacturers, where she applies the same
-              discipline she writes about &mdash; measured, continuous, and
-              unglamorous &mdash; to running a production floor under real
-              pressure. She holds a Lean Six Sigma Black Belt and is currently
-              completing a Global MBA, and founded Elevated Leadership to
-              extend the ideas in this book beyond its pages.
+              Brenda Chebet Koech is a business and manufacturing leader, author, mentor, and leadership thought leader with over 12 years of experience leading people, operations, and transformation. She has built a career leading people, operations, and transformation across complex manufacturing and business environments, with a focus on performance, continuous improvement, and developing high-performing teams.
             </p>
             <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
-              Rising Without Losing Yourself draws directly from that
-              experience: what it takes to lead through a shift change, a
-              missed target, or a boardroom that expects you to be someone
-              you're not &mdash; and what it costs, or doesn't, to stay
-              yourself through all of it.
+             <b>A Lean Six Sigma Black Belt and Global MBA candidate,</b> Brenda has built her career across manufacturing, operational excellence, continuous improvement, quality, and people leadership. Her leadership journey has taken her from the manufacturing floor to senior management, shaping her perspective on what leadership demands beyond technical competence and titles.
             </p>
+            <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
+            As a mentor and founder of Elevated Leadership, Brenda is passionate about creating spaces where leaders can grow with greater self-awareness, authenticity, courage, and purpose. Through the Elevated Leadership platform, she extends these conversations beyond her professional career and into leadership development, mentorship, speaking, and thought leadership.
+
+            </p>
+            <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
+            <b>Rising Without Losing Yourself</b> is her first book. Drawing from real experiences of pressure, self-doubt, difficult decisions, setbacks, relationships, faith, and growth, Brenda offers an honest reflection on what it means to lead others while continuing to learn, unlearn, and become yourself.
+           </p>
+           <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
+She believes that <b>leadership isn't about arriving. It is about becoming.</b>
+
+            </p>
+            
+            
 
             <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 border-t border-line pt-8 sm:grid-cols-2">
               {credentials.map((c) => (

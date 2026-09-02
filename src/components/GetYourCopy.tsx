@@ -3,7 +3,7 @@ import { EDGE_FUNCTIONS_URL } from '../lib/supabaseClient'
 import { isLikelyKenyanPhone, formatPhoneHint } from '../lib/phone'
 import type { CreateOrderResponse, OrderStatus } from '../types'
 
-const PRICE = 1000
+const PRICE = 800
 
 type FlowState = 'form' | 'submitting' | 'awaiting-pin' | 'polling' | 'paid' | 'failed'
 
