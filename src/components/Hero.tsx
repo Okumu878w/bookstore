@@ -28,25 +28,11 @@ export default function Hero() {
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
           <div className="relative">
             <div className="absolute -inset-4 -z-10 rounded-sm border border-gold/40 sm:-inset-6" />
-            <div className="flex aspect-[5/7] w-56 flex-col justify-between border border-ink/15 bg-ink p-7 shadow-[0_30px_60px_-15px_rgba(28,63,96,0.35)] sm:w-72">
-              <div className="h-px w-full bg-gold/40" />
-              <div>
-                <p className="font-serif text-[13px] uppercase tracking-[0.14em] text-gold-light">
-                  A Leadership Memoir
-                </p>
-                <h2 className="mt-4 font-serif text-2xl leading-tight text-cream sm:text-3xl">
-                  Rising Without
-                  <br />
-                  Losing Yourself
-                </h2>
-              </div>
-              <div>
-                <div className="h-px w-10 bg-gold" />
-                <p className="mt-3 font-sans text-sm text-cream/80">
-                  Brenda Chebet Koech
-                </p>
-              </div>
-            </div>
+            <img
+              src="/book cover.jpeg"
+              alt="Rising Without Losing Yourself — book cover"
+              className="aspect-[5/7] w-56 border border-ink/15 object-cover shadow-[0_30px_60px_-15px_rgba(28,63,96,0.35)] sm:w-72"
+            />
           </div>
         </div>
       </div>

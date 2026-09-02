@@ -6,6 +6,7 @@ import AboutAuthor from '../components/AboutAuthor'
 import GetYourCopy from '../components/GetYourCopy'
 import PaymentSupport from '../components/PaymentSupport'
 import Reviews from '../components/Reviews'
+import ContactUs from '../components/ContactUs'
 import Footer from '../components/Footer'
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <GetYourCopy />
         <PaymentSupport />
         <Reviews />
+        <ContactUs />
       </main>
       <Footer />
     </div>

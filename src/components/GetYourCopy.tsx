@@ -22,7 +22,6 @@ export default function GetYourCopy() {
   const [location, setLocation] = useState('')
   const [flow, setFlow] = useState<FlowState>('form')
   const [error, setError] = useState<string | null>(null)
-  const [orderId, setOrderId] = useState<string | null>(null)
   const [orderRef, setOrderRef] = useState<string | null>(null)
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
@@ -115,7 +114,6 @@ export default function GetYourCopy() {
         throw new Error(data.error || 'Could not start the payment. Please try again.')
       }
 
-      setOrderId(data.orderId)
       setOrderRef(data.orderRef)
       setFlow('awaiting-pin')
       pollStatus(data.orderId)
@@ -129,7 +127,6 @@ export default function GetYourCopy() {
     stopPolling()
     setFlow('form')
     setError(null)
-    setOrderId(null)
     setOrderRef(null)
   }
 
@@ -146,9 +143,7 @@ export default function GetYourCopy() {
             </h2>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-ink/70">
               KSh {PRICE.toLocaleString()} per copy. Pay by M-Pesa — you'll get
-              a prompt on your phone the moment you submit the form. Your
-              ebook copy unlocks for download as soon as payment is
-              confirmed.
+              a prompt on your phone the moment you submit the form.
             </p>
           </div>
 
@@ -222,7 +217,6 @@ export default function GetYourCopy() {
             ) : (
               <StatusPanel
                 flow={flow}
-                orderId={orderId}
                 orderRef={orderRef}
                 error={error}
                 onReset={resetForm}
@@ -248,13 +242,11 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function StatusPanel({
   flow,
-  orderId,
   orderRef,
   error,
   onReset,
 }: {
   flow: FlowState
-  orderId: string | null
   orderRef: string | null
   error: string | null
   onReset: () => void
@@ -268,7 +260,6 @@ function StatusPanel({
           Reference <span className="font-semibold">{orderRef}</span>. We'll be
           in touch about delivery or collection.
         </p>
-        <DownloadEbook orderId={orderId} orderRef={orderRef} />
         <button onClick={onReset} className="btn-outline mt-6">
           Place another order
         </button>
@@ -300,66 +291,6 @@ function StatusPanel({
         {orderRef ? ` (${orderRef})` : ''}. Enter your PIN to finish.
       </p>
       <p className="mt-4 text-xs text-ink/50">This page updates automatically.</p>
-    </div>
-  )
-}
-
-// Requests a fresh signed download link on click rather than once up front,
-// since the link is short-lived — no point minting one the customer might
-// not use for several minutes.
-function DownloadEbook({
-  orderId,
-  orderRef,
-}: {
-  orderId: string | null
-  orderRef: string | null
-}) {
-  const [state, setState] = useState<'idle' | 'loading' | 'error'>('idle')
-  const [error, setError] = useState<string | null>(null)
-
-  if (!orderId && !orderRef) return null
-
-  async function handleDownload() {
-    setState('loading')
-    setError(null)
-    try {
-      const params = orderId
-        ? `orderId=${encodeURIComponent(orderId)}`
-        : `ref=${encodeURIComponent(orderRef as string)}`
-      const res = await fetch(`${EDGE_FUNCTIONS_URL}/ebook-download?${params}`, {
-        headers: {
-          apikey: import.meta.env.VITE_SUPABASE_ANON_KEY as string,
-        },
-      })
-      const data: { url?: string; error?: string } = await res.json()
-
-      if (!res.ok || !data.url) {
-        throw new Error(data.error || 'Could not prepare your download.')
-      }
-
-      window.location.href = data.url
-      setState('idle')
-    } catch (err) {
-      setState('error')
-      setError(err instanceof Error ? err.message : 'Something went wrong.')
-    }
-  }
-
-  return (
-    <div className="mt-6 border-t border-line/70 pt-6">
-      <p className="text-sm text-ink/70">Your ebook copy is ready.</p>
-      <button
-        onClick={handleDownload}
-        className="btn-gold mt-3"
-        disabled={state === 'loading'}
-      >
-        {state === 'loading' ? 'Preparing your download…' : 'Download your ebook'}
-      </button>
-      {error && (
-        <p className="mt-2 text-sm text-red-700" role="alert">
-          {error}
-        </p>
-      )}
     </div>
   )
 }
