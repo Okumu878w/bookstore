@@ -17,7 +17,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="#copy" className="btn-gold">
-              Get Your Copy — KSh 800
+              Get Your Copy
             </a>
             <a href="#book" className="btn-outline">
               Read the blurb

@@ -3,7 +3,7 @@ import type { Order, OrderStatus } from '../types'
 export default function StatsCards({ orders }: { orders: Order[] }) {
   const total = orders.length
   const paidOrders = orders.filter((o) => o.status === 'PAID' || o.status === 'DISPATCHED' || o.status === 'DELIVERED')
-  const revenue = paidOrders.reduce((sum, o) => sum + Number(o.amount) * o.quantity, 0)
+  const revenue = paidOrders.reduce((sum, o) => sum + Number(o.amount), 0)
 
   const byStatus = orders.reduce<Record<string, number>>((acc, o) => {
     acc[o.status] = (acc[o.status] || 0) + 1

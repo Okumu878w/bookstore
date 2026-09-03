@@ -82,13 +82,14 @@ export default function OrdersTable({
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[720px] text-left text-sm">
+        <table className="w-full min-w-[800px] text-left text-sm">
           <thead>
             <tr className="border-b border-line text-xs uppercase tracking-wide text-slate-muted">
               <th className="px-4 py-3 font-semibold">Ref</th>
               <th className="px-4 py-3 font-semibold">Name</th>
               <th className="px-4 py-3 font-semibold">Phone</th>
               <th className="px-4 py-3 font-semibold">Qty</th>
+              <th className="px-4 py-3 font-semibold">Amount</th>
               <th className="px-4 py-3 font-semibold">Location</th>
               <th className="px-4 py-3 font-semibold">Method</th>
               <th className="px-4 py-3 font-semibold">Status</th>
@@ -102,6 +103,9 @@ export default function OrdersTable({
                 <td className="px-4 py-3">{o.name}</td>
                 <td className="px-4 py-3">{o.phone}</td>
                 <td className="px-4 py-3">{o.quantity}</td>
+                <td className="px-4 py-3 font-medium text-ink">
+                  KSh {Number(o.amount).toLocaleString()}
+                </td>
                 <td className="px-4 py-3">{o.location}</td>
                 <td className="px-4 py-3">
                   {o.payment_method === 'till_manual' ? 'Till (manual)' : 'STK push'}
@@ -127,7 +131,7 @@ export default function OrdersTable({
             ))}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={8} className="px-4 py-8 text-center text-ink/40">
+                <td colSpan={9} className="px-4 py-8 text-center text-ink/40">
                   No orders match this search.
                 </td>
               </tr>

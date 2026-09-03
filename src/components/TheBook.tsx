@@ -8,6 +8,10 @@ const themeSummaries = [
     text: 'Leading in your own voice, in rooms built for someone else\u2019s.',
   },
   {
+    title: 'Influence',
+    text: 'Moving people toward what matters.Building trust, communicating with intention, and leading with calm authority without losing your values.',
+  },
+  {
     title: 'Becoming',
     text: 'Growth as an ongoing practice, not a title you arrive at and stop.',
   },
@@ -34,11 +38,11 @@ export default function TheBook() {
 Through real stories from boardrooms, factory floors, difficult seasons, setbacks, relationships, and moments of self-doubt, Brenda Chebet shares the lessons that shaped her understanding of leadership, resilience, authenticity, purpose, and influence.
             </p>
             <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
-             This is not a book about perfect leaders or leadership theories that only work in perfect environments. It is about real people navigating real pressure—learning to lead others while also learning, unlearning, and becoming themselves. 
+             This is not a book about perfect leaders or leadership theories that only work in perfect environments. It is about real people navigating real pressure learning to lead others while also learning, unlearning, and becoming themselves. 
 
 Whether you are stepping into leadership for the first time, navigating a challenging workplace, managing a team, building your career, or simply trying to grow without compromising your values, this book offers honest stories and practical reflections to help you keep moving forward.
 You don't have to become someone else to lead effectively.
-You can rise, grow, lead—and still remain yourself.
+You can rise, grow, lead and still remain yourself.
             </p>
 
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">

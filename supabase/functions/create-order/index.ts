@@ -6,8 +6,8 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4'
 import { corsHeaders, handleOptions, jsonResponse } from '../_shared/cors.ts'
 import { normalizeKenyanPhone } from '../_shared/phone.ts'
+import { getCurrentPrice } from '../_shared/pricing.ts'
 
-const PRICE_PER_COPY = 1000
 const MAX_QUANTITY = 50
 
 const BASE_URL = Deno.env.get('BASE_URL')!
@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
     )
   }
 
-  const amount = PRICE_PER_COPY * quantity
+  const amount = getCurrentPrice() * quantity
 
   const { data: order, error: insertError } = await supabase
     .from('orders')

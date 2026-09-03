@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { EDGE_FUNCTIONS_URL } from '../lib/supabaseClient'
 import { isLikelyKenyanPhone, formatPhoneHint } from '../lib/phone'
+import { getCurrentPrice, getCurrentTier, getTierLabel } from '../lib/pricing'
 import type { CreateOrderResponse, OrderStatus } from '../types'
 
-const PRICE = 800
+const PRICE = getCurrentPrice()
+const TIER = getCurrentTier()
+const TIER_LABEL = getTierLabel(TIER)
 
-type FlowState = 'form' | 'submitting' | 'awaiting-pin' | 'polling' | 'paid' | 'failed'
+const TILL_NUMBER = '8731216'
+
+type PaymentMethod = 'stk' | 'till_manual'
+type FlowState = 'form' | 'submitting' | 'awaiting-pin' | 'till-submitted' | 'paid' | 'failed'
 
 const statusCopy: Record<string, string> = {
   PENDING: 'Order created. Sending the payment prompt…',
@@ -16,10 +22,12 @@ const statusCopy: Record<string, string> = {
 }
 
 export default function GetYourCopy() {
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('stk')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [quantity, setQuantity] = useState(1)
   const [location, setLocation] = useState('')
+  const [mpesaCode, setMpesaCode] = useState('')
   const [flow, setFlow] = useState<FlowState>('form')
   const [error, setError] = useState<string | null>(null)
   const [orderRef, setOrderRef] = useState<string | null>(null)
@@ -74,7 +82,7 @@ export default function GetYourCopy() {
         stopPolling()
         setFlow('failed')
         setError(
-          "This is taking longer than expected. If you completed the M-Pesa prompt, your order will still be marked paid shortly — otherwise, try again or use Till 8731216 below.",
+          `This is taking longer than expected. If you completed the M-Pesa prompt, your order will still be marked paid shortly — otherwise, try again or switch to Till ${TILL_NUMBER} above.`,
         )
       }
     }, 5000)
@@ -105,18 +113,32 @@ export default function GetYourCopy() {
           'Content-Type': 'application/json',
           apikey: import.meta.env.VITE_SUPABASE_ANON_KEY as string,
         },
-        body: JSON.stringify({ name, phone, quantity, location }),
+        body: JSON.stringify({
+          name,
+          phone,
+          quantity,
+          location,
+          paymentMethod,
+          ...(paymentMethod === 'till_manual'
+            ? { mpesaCodeSubmitted: mpesaCode || undefined }
+            : {}),
+        }),
       })
 
       const data: CreateOrderResponse & { error?: string } = await res.json()
 
       if (!res.ok) {
-        throw new Error(data.error || 'Could not start the payment. Please try again.')
+        throw new Error(data.error || 'Could not submit your order. Please try again.')
       }
 
       setOrderRef(data.orderRef)
-      setFlow('awaiting-pin')
-      pollStatus(data.orderId)
+
+      if (paymentMethod === 'till_manual') {
+        setFlow('till-submitted')
+      } else {
+        setFlow('awaiting-pin')
+        pollStatus(data.orderId)
+      }
     } catch (err) {
       setFlow('failed')
       setError(err instanceof Error ? err.message : 'Something went wrong.')
@@ -128,6 +150,7 @@ export default function GetYourCopy() {
     setFlow('form')
     setError(null)
     setOrderRef(null)
+    setMpesaCode('')
   }
 
   const total = PRICE * quantity
@@ -141,15 +164,52 @@ export default function GetYourCopy() {
             <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
               Order a copy, delivered or ready for collection
             </h2>
-            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-ink/70">
-              KSh {PRICE.toLocaleString()} per copy. Pay by M-Pesa — you'll get
-              a prompt on your phone the moment you submit the form.
+            {TIER !== 'standard' && (
+              <p className="mt-4 inline-block border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-dark">
+                {TIER_LABEL} — ends{' '}
+                {TIER === 'early-bird' ? '13 Sept 2026' : '20 Sept 2026'}
+              </p>
+            )}
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink/70">
+              {TIER_LABEL}: KSh {PRICE.toLocaleString()} per copy. Pay instantly
+              with an M-Pesa prompt, or pay directly to our Till and confirm
+              below.
             </p>
           </div>
 
           <div className="max-w-lg border border-line bg-cream p-8 sm:p-10">
             {flow === 'form' || flow === 'submitting' ? (
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                <div>
+                  <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-muted">
+                    Payment method
+                  </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setPaymentMethod('stk')}
+                      className={`border px-3 py-2.5 text-sm font-semibold transition-colors ${
+                        paymentMethod === 'stk'
+                          ? 'border-ink bg-ink text-cream'
+                          : 'border-line bg-white text-ink/70 hover:border-ink/40'
+                      }`}
+                    >
+                      M-Pesa prompt
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPaymentMethod('till_manual')}
+                      className={`border px-3 py-2.5 text-sm font-semibold transition-colors ${
+                        paymentMethod === 'till_manual'
+                          ? 'border-ink bg-ink text-cream'
+                          : 'border-line bg-white text-ink/70 hover:border-ink/40'
+                      }`}
+                    >
+                      Pay via Till
+                    </button>
+                  </div>
+                </div>
+
                 <Field label="Full name">
                   <input
                     type="text"
@@ -201,6 +261,35 @@ export default function GetYourCopy() {
                   />
                 </Field>
 
+                {paymentMethod === 'till_manual' && (
+                  <>
+                    <div className="border border-gold/50 bg-gold/10 px-5 py-4">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-slate-muted">
+                        Buy Goods Till Number
+                      </span>
+                      <p className="mt-1 font-serif text-2xl text-ink">{TILL_NUMBER}</p>
+                      <p className="mt-2 text-xs text-ink/60">
+                        Pay KSh {total.toLocaleString()} to the Till above, then
+                        submit this form so we can match your payment to your
+                        order.
+                      </p>
+                    </div>
+                    <Field label="M-Pesa message code (optional)">
+                      <input
+                        type="text"
+                        value={mpesaCode}
+                        onChange={(e) => setMpesaCode(e.target.value)}
+                        className="input"
+                        placeholder="e.g. QCX7Y2AB4C"
+                      />
+                      <span className="mt-1.5 block text-xs text-ink/45">
+                        This helps our team reconcile faster — orders are only
+                        marked paid once we've verified the transaction.
+                      </span>
+                    </Field>
+                  </>
+                )}
+
                 {error && (
                   <p className="text-sm text-red-700" role="alert">
                     {error}
@@ -208,11 +297,14 @@ export default function GetYourCopy() {
                 )}
 
                 <button type="submit" className="btn-gold w-full" disabled={flow === 'submitting'}>
-                  {flow === 'submitting' ? 'Starting payment…' : `Pay KSh ${total.toLocaleString()} with M-Pesa`}
+                  {flow === 'submitting'
+                    ? paymentMethod === 'stk'
+                      ? 'Starting payment…'
+                      : 'Submitting…'
+                    : paymentMethod === 'stk'
+                      ? `Pay KSh ${total.toLocaleString()} with M-Pesa`
+                      : 'Submit order for reconciliation'}
                 </button>
-                <p className="text-center text-xs text-ink/50">
-                  Prefer to pay directly? Use Till 8731216 below.
-                </p>
               </form>
             ) : (
               <StatusPanel
@@ -259,6 +351,23 @@ function StatusPanel({
         <p className="mt-2 text-sm text-ink/70">
           Reference <span className="font-semibold">{orderRef}</span>. We'll be
           in touch about delivery or collection.
+        </p>
+        <button onClick={onReset} className="btn-outline mt-6">
+          Place another order
+        </button>
+      </div>
+    )
+  }
+
+  if (flow === 'till-submitted') {
+    return (
+      <div className="py-6 text-center">
+        <div className="mx-auto mb-4 h-10 w-10 rounded-full border-2 border-gold" />
+        <h3 className="font-serif text-xl text-ink">Thanks — we've got it</h3>
+        <p className="mt-2 text-sm text-ink/70">
+          Reference <span className="font-semibold">{orderRef}</span>. Our team
+          will reconcile your payment against the Till and confirm your order
+          shortly.
         </p>
         <button onClick={onReset} className="btn-outline mt-6">
           Place another order

@@ -4,7 +4,6 @@ import TheBook from '../components/TheBook'
 import Themes from '../components/Themes'
 import AboutAuthor from '../components/AboutAuthor'
 import GetYourCopy from '../components/GetYourCopy'
-import PaymentSupport from '../components/PaymentSupport'
 import Services from '../components/Services'
 import Articles from '../components/Articles'
 import ContactUs from '../components/ContactUs'
@@ -20,7 +19,6 @@ export default function Home() {
         <Themes />
         <AboutAuthor />
         <GetYourCopy />
-        <PaymentSupport />
         <Services />
         <Articles />
         <ContactUs />
