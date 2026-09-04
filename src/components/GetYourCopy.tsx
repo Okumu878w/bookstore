@@ -174,6 +174,7 @@ export default function GetYourCopy() {
               {TIER_LABEL}: KSh {PRICE.toLocaleString()} per copy. Pay instantly
               with an M-Pesa prompt, or pay directly to our Till and confirm
               below.
+              Please note that Transport/delivery fees are not included in the price and will be charged separately.
             </p>
           </div>
 
