@@ -12,8 +12,8 @@ export default function Hero() {
             yourself."
           </p>
           <p className="mt-8 max-w-md text-[15px] leading-relaxed text-ink/70">
-            Chebet Brenda Koech  writes for anyone climbing while trying to stay
-            whole — on resilience, influence, authenticity, and the quiet work of becoming.
+            Brenda Chebet  writes for anyone climbing while trying to stay
+            whole  on resilience, influence, authenticity, and the quiet work of becoming.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="#copy" className="btn-gold">

@@ -15,21 +15,21 @@ export default function AboutAuthor() {
           <div>
             <p className="section-label mb-5">About the Author</p>
             <h2 className="font-serif text-3xl leading-tight text-ink sm:text-4xl">
-              Chebet Brenda Koech
+               Brenda Chebet
             </h2>
              <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-slate-muted">
    Author &bull; Business &amp; Manufacturing Leader &bull; Leadership Thought Leader &bull; Lean Six Sigma Black Belt
  </p>
             <img
               src="/author-photo.jpeg"
-              alt="Chebet Brenda Koech"
+              alt="Chebet Brenda "
               className="mt-8 h-40 w-32 border border-line object-cover sm:h-48 sm:w-36"
             />
           </div>
 
           <div className="max-w-prose">
             <p className="text-[15px] leading-[1.8] text-ink/80">
-              Chebet Brenda Koech is a business and manufacturing leader, author, mentor, and leadership thought leader with over 12 years of experience leading people, operations, and transformation. She has built a career leading people, operations, and transformation across complex manufacturing and business environments, with a focus on performance, continuous improvement, and developing high-performing teams.
+              Brenda Chebet  is a business and manufacturing leader, author, mentor, and leadership thought leader with over 12 years of experience leading people, operations, and transformation. She has built a career leading people, operations, and transformation across complex manufacturing and business environments, with a focus on performance, continuous improvement, and developing high-performing teams.
             </p>
             <p className="mt-5 text-[15px] leading-[1.8] text-ink/80">
              <b>A Lean Six Sigma Black Belt and Global MBA candidate,</b> Brenda has built her career across manufacturing, operational excellence, continuous improvement, quality, and people leadership. Her leadership journey has taken her from the manufacturing floor to senior management, shaping her perspective on what leadership demands beyond technical competence and titles.

@@ -13,7 +13,7 @@ export default function Articles() {
             </h2>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink/70">
               Brenda writes regularly on leadership, resilience, and authenticity in her
-              Elevated Leadership newsletter — the same ideas from the book, applied to
+              Elevated Leadership newsletter the same ideas from the book, applied to
               whatever's happening in leadership right now.
             </p>
           </div>
