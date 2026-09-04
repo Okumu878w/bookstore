@@ -12,12 +12,12 @@ const themes = [
   {
     number: '03',
     title: 'Influence',
-    text: "Leadership is more than competence, position, or having the right answer. It is also about how you communicate, build trust, navigate complexity, and move people toward what matters. Brenda reflects on the evolution from doing to influencing—learning to combine emotional intelligence, strategic thinking, diplomacy, and calm authority without compromising moral clarity.",
+    text: "Leadership is more than competence, position, or having the right answer. It is also about how you communicate, build trust, navigate complexity, and move people toward what matters. Brenda reflects on the evolution from doing to influencing learning to combine emotional intelligence, strategic thinking, diplomacy, and calm authority without compromising moral clarity.",
   },
   {
     number: '04',
     title: 'Becoming',
-    text: "The book's deepest thread is the idea that leadership is not a destination. It is a continual process of learning, unlearning, growing, and becoming. Brenda reflects on the lessons leadership has forced her to unlearn—perfectionism, over-functioning, and the need to carry everything herself—while embracing a more human, grounded, and sustainable way of leading. Through it all, faith remains a quiet anchor, reminding her that identity is bigger than a title, promotion, performance, or the opinions of others.",
+    text: "The book's deepest thread is the idea that leadership is not a destination. It is a continual process of learning, unlearning, growing, and becoming. Brenda reflects on the lessons leadership has forced her to unlearn perfectionism, over-functioning, and the need to carry everything herself while embracing a more human, grounded, and sustainable way of leading. Through it all, faith remains a quiet anchor, reminding her that identity is bigger than a title, promotion, performance, or the opinions of others.",
   },
 ]
 
