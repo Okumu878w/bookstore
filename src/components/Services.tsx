@@ -27,7 +27,7 @@ const services = [
   },
   {
     title: 'Lean Six Sigma & Operational Excellence',
-    text: 'A practical perspective on continuous improvement, problem solving, process excellence, and performance improvement, informed by hands-on experience in operational environments.',
+    text: 'A perspective on continuous improvement and process excellence, informed by hands-on experience leading operations the same discipline that shapes how Brenda writes and speaks about leadership.',
     tagsLabel: 'Areas of interest',
     tags: [
       'Lean Six Sigma',
@@ -36,7 +36,7 @@ const services = [
       'Root Cause Analysis',
       'Process Improvement',
       'Operational Excellence',
-      'Lean Six Sigma Black Belt',
+      
     ],
   },
   {

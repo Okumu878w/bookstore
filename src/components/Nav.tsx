@@ -37,7 +37,7 @@ export default function Nav() {
           href="#copy"
           className="hidden rounded-sm bg-gold px-5 py-2.5 font-sans text-sm font-semibold text-ink-deep transition-colors hover:bg-gold-dark md:inline-flex"
         >
-          Get Your Copy
+          Pre-Order Your Copy
         </a>
 
         <button
@@ -84,7 +84,7 @@ export default function Nav() {
               onClick={closeMenu}
               className="block w-full rounded-sm bg-gold px-5 py-3 text-center font-sans text-sm font-semibold text-ink-deep transition-colors hover:bg-gold-dark"
             >
-              Get Your Copy
+              Pre-Order Your Copy
             </a>
           </div>
         </div>

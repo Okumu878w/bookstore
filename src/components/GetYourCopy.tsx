@@ -160,16 +160,16 @@ export default function GetYourCopy() {
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-28">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="section-label mb-5">Get Your Copy</p>
-            <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
-              Order a copy, delivered or ready for collection
-            </h2>
-            {TIER !== 'standard' && (
-              <p className="mt-4 inline-block border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-dark">
-                {TIER_LABEL} — ends{' '}
-                {TIER === 'early-bird' ? '13 Sept 2026' : '20 Sept 2026'}
-              </p>
-            )}
+            <p className="section-label mb-5">Pre-Order Your Copy</p>
+ <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
+   Pre-Order Your Copy
+ </h2>
+ {TIER === 'early-bird' && (
+    <p className="mt-4 inline-block border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-dark">
+
+     {TIER_LABEL} — Ends 15 Sept 2026
+    </p>
+  )}
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink/70">
               {TIER_LABEL}: KSh {PRICE.toLocaleString()} per copy. Pay instantly
               with an M-Pesa prompt, or pay directly to our Till and confirm

@@ -24,10 +24,12 @@ export default function ContactUs() {
           <div>
             <p className="section-label mb-5">Contact Us</p>
             <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
-              Questions about your order, or the book?
+              Let's Start a Conversation
             </h2>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-ink/70">
-              Reach out directly and we'll get back to you as soon as we can.
+              Whether it's about the book, a speaking engagement, a leadership
+   conversation, or another professional enquiry reach out
+  directly and we'll get back to you as soon as we can.
             </p>
           </div>
 
