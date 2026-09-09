@@ -8,7 +8,7 @@ export type PriceTier = 'early-bird' | 'standard'
 // If the Preorder tier ever comes back, add it here too:
 // export type PriceTier = 'early-bird' | 'preorder' | 'standard'
 
-const EARLY_BIRD_ENDS = '2026-09-15T23:59:59+03:00' // end of day, Africa/Nairobi
+const EARLY_BIRD_ENDS = '2026-10-09T23:59:59+03:00' // end of day, Africa/Nairobi
 
 // --- Preorder tier — removed by the client (kept here for reference) ---
 // const PREORDER_ENDS = '2026-09-20T23:59:59+03:00' // end of day, Africa/Nairobi
