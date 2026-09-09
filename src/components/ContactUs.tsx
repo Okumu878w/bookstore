@@ -6,13 +6,13 @@ const contactDetails = [
   },
   {
     label: 'Phone',
-    value: '0795 055 109',
-    href: 'tel:+254795055109',
+    value: '0737 941 833',
+    href: 'tel:+2540737941833',
   },
   {
     label: 'WhatsApp Us',
-    value: '0795 055 109',
-    href: 'https://wa.me/254795055109',
+    value: '0750 377 893',
+    href: 'https://wa.me/0750377893',
   },
 ]
 
