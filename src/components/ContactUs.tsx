@@ -12,7 +12,7 @@ const contactDetails = [
   {
     label: 'WhatsApp Us',
     value: '0750 377 893',
-    href: 'https://wa.me/0750377893',
+    href: 'https://wa.me/254750377893',
   },
 ]
 
@@ -28,8 +28,8 @@ export default function ContactUs() {
             </h2>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-ink/70">
               Whether it's about the book, a speaking engagement, a leadership
-   conversation, or another professional enquiry reach out
-  directly and we'll get back to you as soon as we can.
+              conversation, or another professional enquiry reach out
+              directly and we'll get back to you as soon as we can.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function ContactUs() {
                     {c.label}
                   </dt>
                   <dd>
-                    <a
+                    
                       href={c.href}
                       target={c.href.startsWith('http') ? '_blank' : undefined}
                       rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
