@@ -1,3 +1,5 @@
+const waNumber = '254750377893'
+
 const contactDetails = [
   {
     label: 'Email',
@@ -12,7 +14,7 @@ const contactDetails = [
   {
     label: 'WhatsApp Us',
     value: '0750 377 893',
-    href: 'https://wa.me/254750377893',
+    href: `https://wa.me/${waNumber}`,
   },
 ]
 
@@ -24,34 +26,39 @@ export default function ContactUs() {
           <div>
             <p className="section-label mb-5">Contact Us</p>
             <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
-              Let's Start a Conversation
+              Let&apos;s Start a Conversation
             </h2>
             <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-ink/70">
-              Whether it's about the book, a speaking engagement, a leadership
-              conversation, or another professional enquiry reach out
-              directly and we'll get back to you as soon as we can.
+              Whether it&apos;s about the book, a speaking engagement, a leadership
+              conversation, or another professional enquiry, reach out
+              directly and we&apos;ll get back to you as soon as we can.
             </p>
           </div>
 
           <div className="max-w-lg border border-line bg-cream p-8 sm:p-10">
             <dl className="divide-y divide-line">
-              {contactDetails.map((c) => (
-                <div key={c.label} className="flex items-center justify-between py-5 first:pt-0 last:pb-0">
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-slate-muted">
-                    {c.label}
-                  </dt>
-                  <dd>
-                    
-                      href={c.href}
-                      target={c.href.startsWith('http') ? '_blank' : undefined}
-                      rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="font-serif text-lg text-ink transition-colors hover:text-gold-dark"
-                    >
-                      {c.value}
-                    </a>
-                  </dd>
-                </div>
-              ))}
+              {contactDetails.map((c) => {
+                const isExternal = c.href.startsWith('http')
+                return (
+                  <div
+                    key={c.label}
+                    className="flex items-center justify-between py-5 first:pt-0 last:pb-0"
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-slate-muted">
+                      {c.label}
+                    </dt>
+                    <dd>
+                      <a href={c.href}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        className="font-serif text-lg text-ink transition-colors hover:text-gold-dark"
+                      >
+                        {c.value}
+                      </a>
+                    </dd>
+                  </div>
+                )
+              })}
             </dl>
           </div>
         </div>
