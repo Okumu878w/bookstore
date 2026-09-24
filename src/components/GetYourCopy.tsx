@@ -166,7 +166,7 @@ export default function GetYourCopy() {
  </h2>
  {TIER === 'early-bird' && (
   <p className="mt-4 inline-block border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-dark">
-    {TIER_LABEL} — Ends 9 Oct 2026
+    {TIER_LABEL} — Ends 2 Oct 2026
   </p>
 )}
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink/70">
