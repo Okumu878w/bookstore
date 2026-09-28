@@ -1,34 +1,21 @@
-// Pricing tiers for Rising Without Losing Yourself.
+// Pricing for Rising Without Losing Yourself.
 //
 // IMPORTANT: This is for display only. The authoritative price is computed
 // server-side in supabase/functions/_shared/pricing.ts — if you change the
-// dates or amounts here, change them there too, identically.
+// amount here, change it there too, identically.
 
-export type PriceTier = 'early-bird' | 'standard'
-// If the Preorder tier ever comes back, add it here too:
-// export type PriceTier = 'early-bird' | 'preorder' | 'standard'
-
-const EARLY_BIRD_ENDS = '2026-10-02T23:59:59+03:00' // end of day, Africa/Nairobi
-
-// --- Preorder tier — removed by the client (kept here for reference) ---
-// const PREORDER_ENDS = '2026-09-20T23:59:59+03:00' // end of day, Africa/Nairobi
-// -------------------------------------------------------------------------
+export type PriceTier = 'standard'
+// If early-bird or preorder tiers ever come back, add them here too.
 
 const PRICES: Record<PriceTier, number> = {
-  'early-bird': 800,
   standard: 1000,
-  // preorder: 900,
 }
 
 const TIER_LABELS: Record<PriceTier, string> = {
-  'early-bird': 'Early Bird Price',
   standard: 'Standard Price',
-  // preorder: 'Preorder Price',
 }
 
-export function getCurrentTier(now: Date = new Date()): PriceTier {
-  if (now <= new Date(EARLY_BIRD_ENDS)) return 'early-bird'
-  // if (now <= new Date(PREORDER_ENDS)) return 'preorder'
+export function getCurrentTier(_now: Date = new Date()): PriceTier {
   return 'standard'
 }
 
