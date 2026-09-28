@@ -3,8 +3,8 @@ const waNumber = '254750377893'
 const contactDetails = [
   {
     label: 'Email',
-    value: 'elevatedleadership8@gmail.com',
-    href: 'mailto:elevatedleadership8@gmail.com',
+    value: 'elevateleadership8@gmail.com',
+    href: 'mailto:elevateleadership8@gmail.com',
   },
   {
     label: 'Phone',
