@@ -160,7 +160,7 @@ export default function GetYourCopy() {
       <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-28">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="section-label mb-5">Pre-Order Your Copy</p>
+            <p className="section-label mb-5">Order Your Copy</p>
  <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
    Order Your Copy
  </h2>

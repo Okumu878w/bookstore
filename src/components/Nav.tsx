@@ -37,7 +37,7 @@ export default function Nav() {
           href="#copy"
           className="hidden rounded-sm bg-gold px-5 py-2.5 font-sans text-sm font-semibold text-ink-deep transition-colors hover:bg-gold-dark md:inline-flex"
         >
-          Pre-Order Your Copy
+          Order Your Copy
         </a>
 
         <button
