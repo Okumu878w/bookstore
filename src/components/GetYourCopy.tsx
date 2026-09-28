@@ -164,11 +164,7 @@ export default function GetYourCopy() {
  <h2 className="max-w-sm font-serif text-3xl leading-tight text-ink sm:text-4xl">
    Order Your Copy
  </h2>
- {TIER === 'early-bird' && (
-  <p className="mt-4 inline-block border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-dark">
-    {TIER_LABEL}
-  </p>
-)}
+ 
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink/70">
               {TIER_LABEL}: KSh {PRICE.toLocaleString()} per copy. Pay instantly
               with an M-Pesa prompt, or pay directly to our Till and confirm
